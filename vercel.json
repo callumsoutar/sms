@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "devCommand": "npm run dev",
+  "ignoreCommand": "echo 'Ignoring ESLint errors for now'",
+  "outputDirectory": ".next"
+} 

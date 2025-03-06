@@ -1,4 +1,5 @@
 import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
 
 interface Testimonial {
 	title: string;
@@ -12,9 +13,9 @@ interface Testimonial {
 
 const data: Testimonial[] = [
 	{
-		title: "It’s just incredible!",
+		title: "It's just incredible!",
 		description:
-			"It’s just 1 month since I’m using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
+			"It's just 1 month since I'm using Spend.In to manage my business expenses, but the result is very satisfying! My business finance now more neat than before, thanks to Spend.In!",
 		user: {
 			image: "/images/testimonials/user1.png",
 			name: "Rizky Ramadhan",
@@ -34,7 +35,7 @@ const data: Testimonial[] = [
 	{
 		title: "No doubt, Spend.In is the best!",
 		description:
-			"“The best”! That’s what I want to say to this platform, didn’t know that there’s a platform to help you manage your business expenses like this! Very recommended to you who have a big business!",
+			"The best! That's what I want to say to this platform, didn't know that there's a platform to help you manage your business expenses like this! Very recommended to you who have a big business!",
 		user: {
 			image: "/images/testimonials/user3.png",
 			name: "Moritika Kazuki",
@@ -76,11 +77,14 @@ const Card = ({ title, description, user }: Testimonial) => {
 			<div className="w-full flex flex-col items-start gap-3">
 				<Separator />
 				<div className="flex items-center gap-3">
-					<img
-						src={user.image}
-						alt={user.name}
-						className="w-[60px] h-[60px] rounded-full"
-					/>
+					<div className="relative w-[60px] h-[60px]">
+						<Image
+							src={user.image}
+							alt={user.name}
+							fill
+							className="rounded-full object-cover"
+						/>
+					</div>
 					<div className="flex flex-col items-start">
 						<p className="text-[16px] font-semibold">{user.name}</p>
 						<p className="text-slate-500 text-[14px]">{user.role}</p>
