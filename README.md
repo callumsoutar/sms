@@ -1,63 +1,123 @@
-# Fullstack SAAS Next.js Supabase Stripe Tailwindcss Boilerplate   
-I have created this boilerplate using next.js, supabase for authentication, and stripe for payments.
+# Aviation Safety Management System (SMS)
 
-<img width="1670" alt="Screenshot 2023-10-02 at 10 18 27 PM" src="https://github.com/salmandotweb/nextjs-supabase-boilerplate/assets/74504762/fa7d4c9a-855d-4a3d-9a6d-38cf2badff60">
+A comprehensive web-based Safety Management System for flight schools and aero clubs, built with Next.js 15, React, and Supabase.
 
-## What's included    
-- Authentication
-- Row-level security
-- Card payments
-- Landing page
-- Protected routes
-## 🛠️ Tech Stack
-- [Next.js](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Supabase](https://supabase.com/)
+## Features
 
-### Cloning the repository
+- **Occurrence Reporting System**
+  - Submit new occurrence reports with detailed information
+  - Classify occurrences (incident, accident, hazard, observation)
+  - Track status (reported, in review, under investigation, closed)
+  - Upload attachments (photos, documents)
 
-```shell
-git clone https://github.com/salmandotweb/nextjs-supabase-boilerplate.git
+- **Investigation Management**
+  - Workflow stages for each investigation
+  - Assignment of investigators
+  - Evidence collection and documentation
+  - Root cause analysis tools
+  - Corrective action tracking
+  - Sign-off and closure process
+
+- **Dashboard**
+  - Overview of recent occurrences
+  - Status of ongoing investigations
+  - Safety metrics and KPIs
+  - Alerts for overdue actions
+  - Filterable/sortable lists of reports
+
+- **User Management**
+  - Role-based access control (admin, safety officer, investigator, reporter)
+  - User profile management
+  - Notification system
+
+## Tech Stack
+
+- **Frontend**
+  - Next.js 15 with App Router
+  - React Server Components
+  - TailwindCSS for styling
+  - TypeScript for type safety
+
+- **Backend**
+  - Supabase for authentication and database
+  - PostgreSQL database with RLS policies
+  - Next.js API routes
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- Supabase account
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/aviation-sms.git
+cd aviation-sms
 ```
 
-### Install packages
-
-```shell
-npm i
+2. Install dependencies
+```bash
+npm install
 ```
 
-### Setup .env file
-
-
-```js
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
+3. Set up environment variables
+Create a `.env.local` file in the root directory with the following variables:
+```
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
 ```
 
-### Add SQL Tables
-Use `database.sql` file
+4. Set up the database
+Run the `database.sql` file in your Supabase SQL editor to create all necessary tables, functions, and policies.
 
-### Start the app
-
-```shell
+5. Run the development server
+```bash
 npm run dev
 ```
 
-## Available commands
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-Running commands with npm `npm run [command]`
+## Project Structure
 
-| command         | description                              |
-| :-------------- | :--------------------------------------- |
-| `dev`           | Starts a development instance of the app |
-#### Salmandotweb
-- Twitter: [@salmandotweb](https://twitter.com/salmandotweb)
-- Github: [@salmandotweb](https://github.com/salmandotweb
-## ➤ License
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+```
+/src
+  /app                 # Next.js App Router
+    /(auth)            # Authentication routes
+    /(site)            # Main site routes
+      /dashboard       # Dashboard and protected routes
+  /components          # React components
+    /dashboard         # Dashboard components
+    /occurrences       # Occurrence-related components
+    /investigations    # Investigation-related components
+  /lib                 # Utility functions and libraries
+  /types               # TypeScript type definitions
+  /hooks               # Custom React hooks
+  /providers           # React context providers
+```
+
+## Database Schema
+
+The database includes the following main tables:
+- `profiles` - User profiles
+- `aircraft` - Aircraft registry
+- `occurrences` - Safety occurrence reports
+- `investigations` - Investigation records
+- `investigation_updates` - Investigation notes and updates
+- `corrective_actions` - Actions to address findings
+- `attachments` - Files attached to occurrences or investigations
+- `notifications` - User notifications
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Supabase](https://supabase.io/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
